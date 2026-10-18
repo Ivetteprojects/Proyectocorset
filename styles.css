@@ -1,0 +1,499 @@
+/* =========================================================
+   ÉLORA - Hoja de Estilos Personalizada (styles.css)
+   ========================================================= */
+
+/* ---------- 1. VARIABLES ---------- */
+:root {
+  /* Paleta de Colores Principal */
+  --vino: #6B1D33;
+  --vino-oscuro: #471324;
+  --rosa: #E5C5C3;            /* Rosa empolvado */
+  --rosa-claro: #F4E4E1;
+  --rosa-profundo: #B87F87;   /* Detalles y acentos */
+  --crema: #FBF5EC;
+  --tinta: #3A2429;           /* Color de texto principal */
+  --tinta-suave: #6F5A5E;     /* Texto secundario */
+
+  /* Tipografías */
+  --fuente-titulos: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --fuente-texto: 'Jost', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+
+  /* Constantes de Diseño */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-pill: 999px;
+  --transicion-suave: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --sombra-card: 0 8px 24px rgba(58, 36, 41, 0.1);
+
+  /* Sobrescritura de Bootstrap 5.3 */
+  --bs-body-font-family: var(--fuente-texto);
+  --bs-body-color: var(--tinta);
+  --bs-body-bg: var(--crema);
+  --bs-heading-color: var(--vino);
+  --bs-link-color-rgb: 107, 29, 51;
+  --bs-link-hover-color-rgb: 71, 19, 36;
+}
+
+/* ---------- 2. BASE ---------- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6,
+.fw-serif {
+  font-family: var(--fuente-titulos);
+  font-weight: 600;
+  color: var(--vino);
+}
+
+/* Formularios & Accesibilidad */
+input[type="search"] {
+  border-radius: var(--radius-pill);
+  padding-left: 1.1rem;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: var(--vino);
+}
+
+a[href^="#"] {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid var(--vino);
+  outline-offset: 3px;
+}
+
+/* ---------- 3. BOTONES PERSONALIZADOS ---------- */
+.btn-vino {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--vino);
+  --bs-btn-border-color: var(--vino);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--vino-oscuro);
+  --bs-btn-hover-border-color: var(--vino-oscuro);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--vino-oscuro);
+  --bs-btn-active-border-color: var(--vino-oscuro);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: var(--rosa-profundo);
+  --bs-btn-disabled-border-color: var(--rosa-profundo);
+  --bs-btn-focus-shadow-rgb: 107, 29, 51;
+}
+
+.btn-contorno-vino {
+  --bs-btn-color: var(--vino);
+  --bs-btn-border-color: var(--vino);
+  --bs-btn-hover-color: var(--crema);
+  --bs-btn-hover-bg: var(--vino);
+  --bs-btn-hover-border-color: var(--vino);
+  --bs-btn-active-color: var(--crema);
+  --bs-btn-active-bg: var(--vino);
+  --bs-btn-active-border-color: var(--vino);
+  --bs-btn-disabled-color: var(--rosa-profundo);
+  --bs-btn-disabled-border-color: var(--rosa-profundo);
+  --bs-btn-focus-shadow-rgb: 107, 29, 51;
+}
+
+.btn-filtro {
+  --bs-btn-color: var(--vino);
+  --bs-btn-border-color: var(--vino);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--vino);
+  --bs-btn-hover-border-color: var(--vino);
+  border-radius: var(--radius-pill);
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.btn-filtro.active {
+  background-color: var(--vino);
+  color: #fff;
+  border-color: var(--vino);
+}
+
+.btn-crema {
+  --bs-btn-color: var(--vino);
+  --bs-btn-bg: var(--crema);
+  --bs-btn-border-color: var(--crema);
+  --bs-btn-hover-color: var(--vino-oscuro);
+  --bs-btn-hover-bg: var(--rosa);
+  --bs-btn-hover-border-color: var(--rosa);
+  --bs-btn-active-bg: var(--rosa);
+  --bs-btn-active-border-color: var(--rosa);
+}
+
+.btn-contorno-crema {
+  --bs-btn-color: var(--crema);
+  --bs-btn-border-color: var(--rosa);
+  --bs-btn-hover-color: var(--vino);
+  --bs-btn-hover-bg: var(--crema);
+  --bs-btn-hover-border-color: var(--crema);
+  --bs-btn-active-color: var(--vino);
+  --bs-btn-active-bg: var(--crema);
+}
+
+/* ---------- 4. ENCABEZADO Y NAVBAR ---------- */
+.navbar {
+  background-color: var(--crema);
+  border-bottom: 1px solid var(--rosa);
+  transition: var(--transicion-suave);
+}
+
+.navbar-brand {
+  font-family: var(--fuente-titulos);
+  font-size: 1.9rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--vino);
+}
+
+.navbar .nav-link {
+  position: relative;
+  color: var(--tinta);
+  transition: color 0.2s ease;
+}
+
+.navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0.5rem;
+  right: 0.5rem;
+  bottom: 0.2rem;
+  height: 2px;
+  background-color: var(--vino);
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .nav-link.active {
+  color: var(--vino);
+}
+
+.navbar .nav-link:hover::after,
+.navbar .nav-link:focus::after,
+.navbar .nav-link.active::after {
+  transform: scaleX(1);
+}
+
+.badge-carrito {
+  background-color: var(--vino);
+  color: #fff;
+}
+
+/* ---------- 5. HERO / SECCIÓN PRINCIPAL ---------- */
+#inicio {
+  background-color: var(--vino);
+  color: var(--crema);
+}
+
+.hero h1 {
+  color: var(--crema);
+  font-size: clamp(2.3rem, 5vw, 3.8rem);
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+}
+
+.hero .lead {
+  max-width: 34rem;
+}
+
+.hero a:focus-visible {
+  outline-color: var(--crema);
+}
+
+.hero-arco {
+  position: relative;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.hero-arco::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border: 1px solid var(--rosa-profundo);
+  border-radius: var(--radius-pill) var(--radius-pill) 0 0;
+  pointer-events: none;
+}
+
+.hero-arco img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius-pill) var(--radius-pill) 0 0;
+  background-color: var(--rosa);
+}
+
+/* ---------- 6. SECCIONES Y TÍTULOS ---------- */
+.seccion {
+  padding: 4.5rem 0;
+}
+
+.seccion-rosa {
+  background-color: var(--rosa-claro);
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin-bottom: 1rem;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 2px;
+  margin: 0.6rem auto 0;
+  background-color: var(--rosa-profundo);
+}
+
+.section-intro {
+  max-width: 38rem;
+  margin: 0 auto 2rem;
+  color: var(--tinta-suave);
+}
+
+/* ---------- 7. CATÁLOGOS Y FILTROS ---------- */
+.filtros-busqueda {
+  flex: 1 1 13rem;
+  max-width: 18rem;
+}
+
+.result-count {
+  margin: 1rem 0 1.25rem;
+  font-size: 0.9rem;
+  color: var(--tinta-suave);
+}
+
+.no-results {
+  padding: 2rem 0;
+  color: var(--tinta-suave);
+}
+
+/* ---------- 8. TARJETAS DE PRODUCTO ---------- */
+.product-card {
+  background-color: #fff;
+  border: 1px solid var(--rosa) !important;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: var(--transicion-suave);
+}
+
+.product-card:hover {
+  border-color: var(--vino) !important;
+  box-shadow: var(--sombra-card) !important;
+  transform: translateY(-2px);
+}
+
+.product-card > .card-body {
+  padding: 1.15rem;
+}
+
+.product-card img {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background-color: var(--rosa-claro);
+}
+
+.product-cat {
+  margin-bottom: 0.15rem;
+  font-size: 0.85rem;
+  color: var(--tinta-suave);
+}
+
+.product-card .card-title {
+  font-size: 1.35rem;
+  margin-bottom: 0.25rem;
+}
+
+.product-price {
+  font-family: var(--fuente-titulos);
+  font-size: 1.5rem;
+  color: var(--vino);
+}
+
+.product-card .form-label {
+  margin-bottom: 0.25rem;
+}
+
+/* ---------- 9. LAYOUT DE TIENDA Y CARRITO ---------- */
+.tienda-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 2rem;
+  align-items: start;
+}
+
+.carrito {
+  position: sticky;
+  top: 5.5rem;
+  background-color: #fff;
+  border: 1px solid var(--rosa) !important;
+  border-radius: var(--radius-md);
+}
+
+.cart-items {
+  max-height: 22rem;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+/* Estilización discreta del scrollbar */
+.cart-items::-webkit-scrollbar {
+  width: 5px;
+}
+.cart-items::-webkit-scrollbar-thumb {
+  background: var(--rosa-profundo);
+  border-radius: 10px;
+}
+
+.cart-item {
+  padding: 0.75rem 0;
+}
+
+.cart-item:nth-child(even) {
+  background-color: rgba(244, 228, 225, 0.4);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+.cart-item-name {
+  font-weight: 500;
+}
+
+.cart-item-meta {
+  font-size: 0.85rem;
+  color: var(--tinta-suave);
+}
+
+#cartTotal {
+  font-family: var(--fuente-titulos);
+  font-size: 1.7rem;
+  color: var(--vino);
+}
+
+/* ---------- 10. PASOS Y PROCESO ---------- */
+.pasos .badge {
+  background-color: var(--rosa-profundo) !important;
+}
+
+/* ---------- 11. FORMULARIO ---------- */
+fieldset {
+  padding: 0;
+  border: 0;
+}
+
+legend {
+  float: none;
+  width: auto;
+  margin-bottom: 0.75rem;
+  padding: 0;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--vino);
+  box-shadow: 0 0 0 0.25rem rgba(107, 29, 51, 0.15);
+}
+
+.form-check-input:checked {
+  background-color: var(--vino);
+  border-color: var(--vino);
+}
+
+.aviso-form {
+  border-radius: var(--radius-sm);
+}
+
+/* ---------- 12. MODAL Y NOTIFICACIONES ---------- */
+.modal-precio {
+  font-family: var(--fuente-titulos);
+  color: var(--vino);
+}
+
+.badge-rosa {
+  background-color: var(--rosa);
+  color: var(--vino-oscuro);
+  font-weight: 500;
+}
+
+/* Toast flotante optimizado con animaciones nativas */
+.aviso-flotante {
+  display: none;
+  position: fixed;
+  left: 50%;
+  bottom: 1.5rem;
+  z-index: 1090;
+  width: min(90vw, 28rem);
+  margin: 0;
+  transform: translateX(-50%);
+  box-shadow: var(--sombra-card);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+}
+
+/* ---------- 13. PIE DE PÁGINA ---------- */
+.pie {
+  background-color: var(--vino-oscuro) !important;
+}
+
+.pie-marca {
+  font-family: var(--fuente-titulos);
+  letter-spacing: 0.18em;
+  color: var(--crema);
+}
+
+/* ---------- 14. MEDIA QUERIES (RESPONSIVE) ---------- */
+@media (max-width: 991.98px) {
+  .tienda-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .carrito {
+    position: static;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .hero-arco {
+    max-width: 260px;
+  }
+
+  .filtros-busqueda {
+    max-width: none;
+  }
+
+  .product-card .acciones {
+    flex-direction: column;
+  }
+}
+
+/* Accesibilidad: Reducción de movimiento */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
